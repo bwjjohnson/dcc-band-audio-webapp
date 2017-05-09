@@ -66,6 +66,7 @@
 		</div>
 		<script type="text/javascript">
 			var BUCKET_URL = 'http://media.downtowncornerstone.org.s3-us-west-2.amazonaws.com/';
+			var MEDIA_URL = 'http://media.downtowncornerstone.org/';
 			var tableByDate = null;
 			var tableBySong = null;
 			var globalData = null;
@@ -321,7 +322,7 @@
 					});
 					var size = (globalFileData.length == 1) ? globalFileData[0].Size : '';
 					html += '<tr>';
-					html += '<td><a href="' + BUCKET_URL + file + '">' + baseName(file) + '</a></td>';
+					html += '<td><a href="' + MEDIA_URL + file + '">' + baseName(file) + '</a></td>';
 					html += '<td>' + size + '</td>';
 					html += '<td><a href="javascript:goToDate(\'' + filePathToDate(file) + '\')">' + filePathToDate(file) + '</td>';
 					html += '</tr>';
@@ -339,7 +340,7 @@
 					});
 					var size = (globalFileData.length == 1) ? globalFileData[0].Size : '';
 					html += '<tr>';
-					html += '<td><a href="' + BUCKET_URL + file + '">' + baseName(file) + '</a></td>';
+					html += '<td><a href="' + MEDIA_URL + file + '">' + baseName(file) + '</a></td>';
 					html += '<td>' + size + '</td>';
 					html += '<td><a href="javascript:goToSong(\'' + filePathToTitle(file) + '\')">' + filePathToTitle(file) + '</td>';
 					html += '</tr>';
