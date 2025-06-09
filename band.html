@@ -314,9 +314,18 @@
 			}
 
 			function formatDateChildData(data) {
+				// Sort files by date (newest to oldest)
+				var sortedFiles = data.files.slice().sort(function(a, b) {
+					var dateA = filePathToDate(a);
+					var dateB = filePathToDate(b);
+					// Compare as strings (YYYY-MM-DD), so reverse for newest first
+					if (dateA > dateB) return -1;
+					if (dateA < dateB) return 1;
+					return 0;
+				});
 				var html = '<table class="child-row">';
 				html += '<tr><th>File</th><th>Size</th><th>Date</th></tr>';
-				$.each(data.files, function(index, file) {
+				$.each(sortedFiles, function(index, file) {
 					var globalFileData = $.grep(globalData.files, function(gfile) {
 						return gfile.Path == file;
 					});
