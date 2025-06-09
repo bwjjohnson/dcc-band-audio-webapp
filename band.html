@@ -3,7 +3,7 @@
 	<head>
 		<title>DCC - Band Reference Audio</title>
 		<!-- sourced from https://github.com/bwjjohnson/dcc-band-audio-webapp -->
-		<link type="image/x-icon" href="http://downtowncornerstone.org/wp-content/uploads/2010/06/DCC-logo_85bk-fav.png" rel="shortcut icon">
+		<link type="image/x-icon" href="https://downtowncornerstone.org/wp-content/uploads/2010/06/DCC-logo_85bk-fav.png" rel="shortcut icon">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
@@ -12,12 +12,12 @@
 				text-align: center;
 			}
 			td.details-control {
-				background: url('http://www.datatables.net/examples/resources/details_open.png') no-repeat center center;
+				background: url('https://www.datatables.net/examples/resources/details_open.png') no-repeat center center;
 				cursor: pointer;
 				width: 15px;
 			}
 			tr.shown td.details-control {
-				background: url('http://www.datatables.net/examples/resources/details_close.png') no-repeat center center;
+				background: url('https://www.datatables.net/examples/resources/details_close.png') no-repeat center center;
 			}
 			div.dataTables_wrapper div.dataTables_filter {
 				float: none;
@@ -65,8 +65,8 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			var BUCKET_URL = 'http://media.downtowncornerstone.org.s3-us-west-2.amazonaws.com/';
-			var MEDIA_URL = 'http://media.downtowncornerstone.org/';
+			var BUCKET_URL = 'https://s3-us-west-2.amazonaws.com/media.downtowncornerstone.org/';
+			var MEDIA_URL = 'https://media.downtowncornerstone.org/';
 			var tableByDate = null;
 			var tableBySong = null;
 			var globalData = null;
@@ -175,7 +175,7 @@
 			function getS3Data(marker, data) {
 				var s3_rest_url = createS3QueryUrl(marker);
 				// set loading notice
-				$('#loading').html('<img src="http://assets.okfn.org/images/icons/ajaxload-circle.gif" />');
+				$('#loading').html('<img src="https://assets.okfn.org/images/icons/ajaxload-circle.gif" />');
 				$.get(s3_rest_url).done(function(response) {
 					var xml = $(response);
 					data = getDataFromS3Response(xml, data);
