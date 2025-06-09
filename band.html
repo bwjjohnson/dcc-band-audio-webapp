@@ -351,6 +351,8 @@
 
 			function filePathToTitle(path) {
 				var file = baseName(path);
+				// Remove musical key in parenthesis at the end, e.g. _(A), _(Bb), etc.
+				file = file.replace(/_\([A-G][b#]?\)$/i, '');
 				var noExt = file.replace('.mp3$', '');
 				var words = noExt.replace(/^[0-9]*/, '');
 				var noUnderscores = words.replace(/_/g, ' ');
