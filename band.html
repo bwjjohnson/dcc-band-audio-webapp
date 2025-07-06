@@ -177,8 +177,33 @@
 				});
 				setupListeners();
 				setupStyles();
-				// Select the first row to show the latest week's sermons
-				$('td.details-control')[0].click();
+
+				// Check to see if there's a query string for a date or song
+				var query = window.location.search;
+				if (query) {
+					query = query.substring(1); // remove leading '?'
+					var params = new URLSearchParams(query);
+					if (params.has('date')) {
+						var date = params.get('date');
+						// Show the date tab and search for the date
+						$('.nav-tabs a[href="#tab-data-by-date"]').tab('show');
+						tableByDate.search(date, true).draw();
+						// Select the first row to show the latest week's sermons
+						$('td.details-control')[0].click();
+					} else if (params.has('song')) {
+						var song = params.get('song');
+						// Show the song tab and search for the song
+						$('.nav-tabs a[href="#tab-data-by-song"]').tab('show');
+						tableBySong.search(song, true).draw();
+						// Select the first row
+						$('table#data-by-song td.details-control')[0].click();
+					} else {
+						$('td.details-control')[0].click();
+					}
+				} else {
+					// Default to showing the latest week's sermons
+					$('td.details-control')[0].click();
+				}
 			}
 
 			function getS3Data(marker, data) {
